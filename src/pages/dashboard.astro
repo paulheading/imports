@@ -1,0 +1,33 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <h1>Dashboard</h1>
+  </body>
+</html>
+
+<script>
+  import Cookies from "js-cookie";
+
+  let user = await getData("me");
+
+  async function getData(endpoint) {
+    let response = await fetch("https://api.spotify.com/v1/" + endpoint, {
+      method: "get",
+      headers: {
+        Authorization: "Bearer " + Cookies.get("access_token"),
+      },
+    });
+
+    let data = await response.json();
+
+    return data;
+  }
+
+  console.log("user: ", user);
+</script>

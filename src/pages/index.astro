@@ -1,0 +1,33 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+  <body>
+    <button id="log-in">Log in</button>
+  </body>
+</html>
+
+<script>
+  let $button = document.querySelector("#log-in");
+
+  $button.addEventListener("click", function () {
+    const client_id = import.meta.env.PUBLIC_CLIENT_ID;
+    const redirect_uri = import.meta.env.PUBLIC_REDIRECT_URI;
+
+    let auth_query_parameters = new URLSearchParams({
+      response_type: "code",
+      client_id,
+      scope: "user-library-read",
+      redirect_uri,
+    });
+
+    window.location.replace(
+      "https://accounts.spotify.com/authorize?" +
+        auth_query_parameters.toString()
+    );
+  });
+</script>
