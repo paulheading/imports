@@ -7,27 +7,8 @@
     <title>Astro</title>
   </head>
   <body>
-    <h1>Dashboard</h1>
+    <h1>Hi <span id="firstname"></span></h1>
   </body>
 </html>
 
-<script>
-  import Cookies from "js-cookie";
-
-  let user = await getData("me");
-
-  async function getData(endpoint) {
-    let response = await fetch("https://api.spotify.com/v1/" + endpoint, {
-      method: "get",
-      headers: {
-        Authorization: "Bearer " + Cookies.get("access_token"),
-      },
-    });
-
-    let data = await response.json();
-
-    return data;
-  }
-
-  console.log("user: ", user);
-</script>
+<script src="~scripts/pages/dashboard"></script>
