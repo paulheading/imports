@@ -1,0 +1,17 @@
+---
+import "~styles/global.scss";
+import Head from "~components/head.astro";
+---
+
+<script>
+  import "focus-visible/dist/focus-visible.min.js";
+</script>
+
+<html lang="en">
+  <Head {...Astro.props} />
+  <body>
+    <header></header>
+    <slot />
+    <footer></footer>
+  </body>
+</html>

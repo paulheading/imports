@@ -1,14 +1,13 @@
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <h1>Callback!</h1>
-  </body>
-</html>
+---
+import Layout from "~layouts/main.astro";
+---
+
+<Layout>
+  <div class="wrap_layout">
+    <div class="hero">
+      <h1>Hi <span id="firstname"></span></h1>
+    </div>
+  </div>
+</Layout>
 
 <script src="~scripts/pages/callback"></script>

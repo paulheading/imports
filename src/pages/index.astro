@@ -1,14 +1,17 @@
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <button id="log-in">Log in</button>
-  </body>
-</html>
+---
+import Layout from "~layouts/main.astro";
+---
+
+<Layout>
+  <div class="wrap_layout">
+    <div class="hero">
+      <h1>Yearly</h1>
+      <h4>Songs you discovered this year</h4>
+    </div>
+    <div class="controls">
+      <button id="log-in">Log in</button>
+    </div>
+  </div>
+</Layout>
 
 <script src="~scripts/pages/homepage"></script>

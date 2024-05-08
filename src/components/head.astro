@@ -1,0 +1,27 @@
+---
+const { title, keywords, description } = Astro.props;
+
+const faviconProps = {
+  type: "image/svg+xml",
+  href: "/favicon.svg",
+  rel: "icon",
+};
+
+const themeProps = {
+  name: "theme-color",
+  content: "black",
+};
+---
+
+<head>
+  <meta charset="UTF-8" />
+  <link {...faviconProps} />
+  <link rel="sitemap" href="/sitemap-index.xml" />
+  <meta name="generator" content={Astro.generator} />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="author" content="Paul Heading" />
+  <title>{title ? title : "Yearly | Spotify App"}</title>
+  {description && <meta name="description" content={description} />}
+  {keywords && <meta name="keywords" content={keywords} />}
+  <meta {...themeProps} />
+</head>

@@ -1,32 +1,12 @@
-import { Buffer } from "buffer";
-import Cookies from "js-cookie";
+import { setAccessToken, setUser } from "~scripts/services";
+import { store } from "~scripts/helpers";
 
-const url_params = new URLSearchParams(window.location.search);
-const code = url_params.get("code");
+setAccessToken()
+  .then(setUser)
+  .then(function () {
+    let $first_name = document.querySelector("#firstname");
 
-const client_id = import.meta.env.PUBLIC_CLIENT_ID;
-const client_secret = import.meta.env.PUBLIC_CLIENT_SECRET;
-const redirect_uri = import.meta.env.PUBLIC_REDIRECT_URI;
+    $first_name.innerHTML = store.user.first_name;
 
-let body = new URLSearchParams({
-  code,
-  redirect_uri,
-  grant_type: "authorization_code",
-});
-
-let response = await fetch("https://accounts.spotify.com/api/token", {
-  method: "post",
-  body,
-  headers: {
-    "Content-type": "application/x-www-form-urlencoded",
-    Authorization:
-      "Basic " +
-      Buffer.from(client_id + ":" + client_secret).toString("base64"),
-  },
-});
-
-let data = await response.json();
-
-Cookies.set("access_token", data.access_token);
-
-window.location.replace("/dashboard");
+    console.log("user: ", store);
+  });

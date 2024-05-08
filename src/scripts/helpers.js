@@ -1,10 +1,10 @@
-import Cookies from "js-cookie";
+const store = {};
 
 async function getData(endpoint) {
   let response = await fetch("https://api.spotify.com/v1/" + endpoint, {
     method: "get",
     headers: {
-      Authorization: "Bearer " + Cookies.get("access_token"),
+      Authorization: "Bearer " + store.access_token,
     },
   });
 
@@ -13,4 +13,4 @@ async function getData(endpoint) {
   return data;
 }
 
-export { getData };
+export { store, getData };
