@@ -1,12 +1,42 @@
 ---
 import Layout from "~layouts/main.astro";
+import Card from "~components/card.astro";
 ---
 
 <Layout>
   <div class="wrap_layout">
     <div class="hero">
-      <h1>Hi <span id="firstname"></span></h1>
+      <h1>Hi <strong id="firstname"></strong></h1>
     </div>
+    <div class="intro">
+      <p>Let's make a playlist!</p>
+      <p>
+        Yearly finds your favourite songs from the last year and shares them
+        with your friends.
+      </p>
+      <p>Pick a playlist style to get started</p>
+    </div>
+    <div class="wrap_cards">
+      <Card title="Cindy">
+        <p>
+          We're all friends here. Let's find your recent favs and share the
+          love.
+        </p>
+      </Card>
+      <Card title="BadJo">
+        <p>Don’t waste my time. Fresh discoveries only. Get out.</p>
+      </Card>
+      <Card title="Custom">
+        <ul>
+          <li>Released this year</li>
+          <li>Prioritize fewest plays</li>
+          <li>Include recommends</li>
+        </ul>
+      </Card>
+    </div>
+    <button class="custom_playlist" data-clicked="false"
+      >Custom job please</button
+    >
   </div>
 </Layout>
 

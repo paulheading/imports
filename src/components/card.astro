@@ -1,0 +1,22 @@
+---
+const { title } = Astro.props;
+
+const customClass = title.toLowerCase();
+
+const containerProps = {
+  "class:list": ["card", customClass],
+};
+
+const profileProps = {
+  "class:list": ["profile"],
+  src: title.toLowerCase() + ".jpg",
+  alt: title + "'s profile pic",
+};
+---
+
+<div {...containerProps}>
+  <img {...profileProps} />
+  <h2>{title}</h2>
+  <slot />
+  <button class="select">Select</button>
+</div>
