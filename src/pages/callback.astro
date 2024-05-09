@@ -1,6 +1,7 @@
 ---
 import Layout from "~layouts/main.astro";
 import Card from "~components/card.astro";
+import CustomButton from "~components/buttons/custom.astro";
 ---
 
 <Layout>
@@ -34,9 +35,7 @@ import Card from "~components/card.astro";
         </ul>
       </Card>
     </div>
-    <button class="custom_playlist" data-clicked="false"
-      >Custom job please</button
-    >
+    <CustomButton />
   </div>
 </Layout>
 

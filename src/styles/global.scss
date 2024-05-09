@@ -1,77 +1,7 @@
 /// @author Paul Heading
 /// This is the global scss file
 
-$padding-card: 10px;
-
-$size-profile: 100px;
-
-$margin-profile: - ($size-profile * 0.5 + $padding-card);
-
-$margin-card: $size-profile * 0.5;
-
-$width-layout: 768px;
-
-$width-card: 260px;
-
-$width-card-text: 80%;
-
-$max-width-intro: 420px;
-
-$height-switch: 32px;
-
-$width-switch: 56px;
-
-$offset-slider: 4px;
-
-$size-slider: $height-switch - ($offset-slider * 2);
-
-$transition-slider: .4s;
-
-$padding-options: 10px;
-
-@mixin focus-visible {
-  &[data-focus-visible-added] {
-    @content;
-  }
-}
-
-@mixin focus-hover {
-  @media (hover: hover) {
-    &:hover {
-      @content;
-    }
-  }
-}
-
-@mixin focus {
-  &:active {
-    @content;
-  }
-
-  @include focus-hover {
-    @content;
-  }
-
-  @include focus-visible {
-    @content;
-  }
-}
-
-@mixin setup-box {
-  outline: transparent;
-  position: relative;
-  z-index: 2;
-}
-
-@mixin single-box($bg: black, $size: 0.25rem) {
-  @include setup-box;
-  box-shadow: 0 0 0 $size $bg;
-}
-
-@mixin double-box($bg: white, $col: black, $bg_size: 0.25rem, $col_size: 0.15rem) {
-  @include setup-box;
-  box-shadow: 0 0 0 $bg_size $bg, 0 0 0 ($bg_size + $col_size) $col;
-}
+@import "~styles/mixins.scss";
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -117,53 +47,9 @@ img.profile {
 }
 
 .wrap_cards {
+  padding-bottom: $padding-wrap-cards;
+  padding-top: $padding-wrap-cards;
   min-height: 336px;
-}
-
-.card {
-  margin: $margin-card $padding-card $padding-card;
-  border-radius: $padding-card;
-  border: 1px solid black;
-  vertical-align: middle;
-  padding: $padding-card;
-  display: inline-block;
-  position: relative;
-  width: $width-card;
-}
-
-.card p {
-  width: $width-card-text;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-button.select {
-  border-radius: $padding-card;
-  background-color: black;
-  padding: $padding-card;
-  cursor: pointer;
-  color: white;
-  border: none;
-  width: 100%;
-}
-
-button.custom_playlist {
-  text-decoration: underline;
-  background: none;
-  margin-top: 30px;
-  cursor: pointer;
-  border: none;
-
-  @include focus {
-    @include single-box;
-    background-color: black;
-    color: white;
-  }
-}
-
-.custom.card {
-  display: none;
-  opacity: 0;
 }
 
 .switch {
@@ -230,15 +116,4 @@ ul.options li {
   justify-content: space-between;
   align-items: center;
   display: flex;
-}
-
-button.info {
-  background-color: transparent;
-  border-radius: $padding-card;
-  padding: $padding-card;
-  border: transparent;
-  position: absolute;
-  cursor: pointer;
-  right: 0;
-  top: 0;
 }

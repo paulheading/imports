@@ -1,4 +1,7 @@
 ---
+import InfoButton from "~components/buttons/info.astro";
+import SelectButton from "~components/buttons/select.astro";
+
 const { title } = Astro.props;
 
 const customClass = title.toLowerCase();
@@ -16,7 +19,36 @@ const profileProps = {
 
 <div {...containerProps}>
   <img {...profileProps} />
+  <InfoButton />
   <h2>{title}</h2>
-  <slot />
-  <button class="select">Select</button>
+  <div class="wrap_slot">
+    <slot />
+  </div>
+  <SelectButton />
 </div>
+
+<style lang="scss">
+  @import "~styles/mixins.scss";
+
+  .card {
+    margin: $margin-card $padding-card $padding-card;
+    border-radius: $padding-card;
+    border: 1px solid black;
+    vertical-align: middle;
+    padding: $padding-card;
+    display: inline-block;
+    position: relative;
+    width: $width-card;
+  }
+
+  .custom.card {
+    display: none;
+    opacity: 0;
+  }
+
+  .wrap_slot {
+    width: $width-card-text;
+    margin-right: auto;
+    margin-left: auto;
+  }
+</style>

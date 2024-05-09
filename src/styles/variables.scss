@@ -1,0 +1,49 @@
+/// Margin variables
+
+/// Width variables
+
+$width-layout: 768px;
+
+$width-card: 260px;
+
+$width-card-text: 80%;
+
+$width-switch: 56px;
+
+/// Max-width variables
+
+$max-width-intro: 420px;
+
+/// Height variables
+
+$height-header: 100px;
+
+$height-switch: 32px;
+
+/// Offset variables
+
+$offset-slider: 4px;
+
+/// Padding variables
+
+$padding-options: 10px;
+
+$padding-card: 10px;
+
+/// Size variables
+
+/// Transition variables
+
+$transition-slider: .4s;
+
+/// Dependent variables
+
+$size-profile: $height-header;
+
+$size-slider: $height-switch - ($offset-slider * 2);
+
+$margin-card: $size-profile * 0.5;
+
+$margin-profile: - ($size-profile * 0.5 + $padding-card);
+
+$padding-wrap-cards: $height-header * 0.5;

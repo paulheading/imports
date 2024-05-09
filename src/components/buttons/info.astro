@@ -1,0 +1,22 @@
+---
+import InfoSvg from "~svg/info.astro";
+---
+
+<button class="info">
+  <InfoSvg />
+</button>
+
+<style lang="scss">
+  @import "~styles/mixins.scss";
+
+  button.info {
+    background-color: transparent;
+    border-radius: $padding-card;
+    padding: $padding-card;
+    border: transparent;
+    position: absolute;
+    cursor: pointer;
+    right: 0;
+    top: 0;
+  }
+</style>
