@@ -2,10 +2,11 @@
 import Layout from "~layouts/main.astro";
 import Card from "~components/card.astro";
 import CustomButton from "~components/buttons/custom.astro";
+import OptionToggle from "~components/toggles/option.astro";
 ---
 
 <Layout>
-  <div class="wrap_layout">
+  <div class="wrap-layout">
     <div class="hero">
       <h1>Hi <strong id="firstname"></strong></h1>
     </div>
@@ -17,21 +18,25 @@ import CustomButton from "~components/buttons/custom.astro";
       </p>
       <p>Pick a playlist style to get started</p>
     </div>
-    <div class="wrap_cards">
+    <div class="wrap-cards">
       <Card title="Cindy">
-        <p>
+        <p class="card-intro">
           We're all friends here. Let's find your recent favs and share the
           love.
         </p>
       </Card>
       <Card title="BadJo">
-        <p>Don’t waste my time. Fresh discoveries only. Get out.</p>
+        <p class="card-intro">
+          Don’t waste my time. Fresh discoveries only. Get out.
+        </p>
       </Card>
       <Card title="Custom">
-        <ul>
-          <li>Released this year</li>
-          <li>Prioritize fewest plays</li>
-          <li>Include recommends</li>
+        <ul class="toggle-list">
+          <li><OptionToggle title="Released this year" color="green" /></li>
+          <li>
+            <OptionToggle title="Prioritize fewest plays" />
+          </li>
+          <li><OptionToggle title="Include recommends" color="purple" /></li>
         </ul>
       </Card>
     </div>

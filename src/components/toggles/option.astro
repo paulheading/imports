@@ -1,0 +1,100 @@
+---
+const { title, color = "blue" } = Astro.props;
+
+const containerClass = title.toLowerCase().split(" ").join("-");
+
+const containerProps = {
+  "class:list": ["toggle-option", containerClass],
+};
+
+const sliderProps = {
+  "class:list": ["slider", color],
+};
+---
+
+<div {...containerProps}>
+  <span>{title}</span>
+  <label class="switch">
+    <input type="checkbox" />
+    <span {...sliderProps}></span>
+  </label>
+</div>
+
+<style lang="scss">
+  @import "~styles/mixins.scss";
+
+  .toggle-option {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+  }
+
+  .switch {
+    height: $height-switch;
+    display: inline-block;
+    width: $width-switch;
+    position: relative;
+  }
+
+  .switch input {
+    opacity: 0;
+    height: 0;
+    width: 0;
+  }
+
+  .slider {
+    -webkit-transition: $transition-slider;
+    transition: $transition-slider;
+    border-radius: $height-switch;
+    background-color: #ccc;
+    position: absolute;
+    cursor: pointer;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+  }
+
+  .slider:before {
+    -webkit-transition: $transition-slider;
+    transition: $transition-slider;
+    background-color: white;
+    bottom: $offset-slider;
+    height: $size-slider;
+    left: $offset-slider;
+    width: $size-slider;
+    border-radius: 50%;
+    position: absolute;
+    content: "";
+  }
+
+  input:checked + .slider.green {
+    background-color: $color-green;
+  }
+
+  input:focus + .slider.green {
+    box-shadow: 0 0 1px $color-green;
+  }
+
+  input:checked + .slider.blue {
+    background-color: $color-blue;
+  }
+
+  input:focus + .slider.blue {
+    box-shadow: 0 0 1px $color-blue;
+  }
+
+  input:checked + .slider.purple {
+    background-color: $color-purple;
+  }
+
+  input:focus + .slider.purple {
+    box-shadow: 0 0 1px $color-purple;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX($size-slider);
+    -ms-transform: translateX($size-slider);
+    transform: translateX($size-slider);
+  }
+</style>

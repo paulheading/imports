@@ -11,7 +11,9 @@ import Head from "~components/head.astro";
   <Head {...Astro.props} />
   <body>
     <header></header>
-    <slot />
+    <main>
+      <slot />
+    </main>
     <footer></footer>
   </body>
 </html>

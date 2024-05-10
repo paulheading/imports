@@ -11,14 +11,31 @@ body {
 }
 
 header {
-  height: 100px;
+  height: $height-header;
 }
 
 footer {
-  height: 100px;
+  height: $height-header;
 }
 
-.wrap_layout {
+main {
+  padding-right: $margin-p;
+  padding-left: $margin-p;
+}
+
+button {
+  font-size: inherit;
+}
+
+p {
+  margin: 0;
+}
+
+p+p {
+  margin-top: $margin-p;
+}
+
+.wrap-layout {
   max-width: $width-layout;
   margin-right: auto;
   text-align: center;
@@ -35,85 +52,21 @@ h1 {
   margin-left: auto;
 }
 
-img.profile {
-  background-color: gainsboro;
-  margin-top: $margin-profile;
-  border: 1px solid black;
-  height: $size-profile;
-  display: inline-block;
-  width: $size-profile;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.wrap_cards {
-  padding-bottom: $padding-wrap-cards;
-  padding-top: $padding-wrap-cards;
+.wrap-cards {
   min-height: 336px;
 }
 
-.switch {
-  height: $height-switch;
-  display: inline-block;
-  width: $width-switch;
-  position: relative;
+.card-intro {
+  width: $max-width-card-text;
+  margin: 0 auto $margin-p;
 }
 
-.switch input {
-  opacity: 0;
-  height: 0;
-  width: 0;
-}
-
-.slider {
-  -webkit-transition: $transition-slider;
-  transition: $transition-slider;
-  border-radius: $height-switch;
-  background-color: #ccc;
-  position: absolute;
-  cursor: pointer;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  top: 0;
-}
-
-.slider:before {
-  background-color: white;
-  -webkit-transition: .4s;
-  bottom: $offset-slider;
-  height: $size-slider;
-  left: $offset-slider;
-  width: $size-slider;
-  border-radius: 50%;
-  position: absolute;
-  transition: .4s;
-  content: "";
-}
-
-input:checked+.slider {
-  background-color: #2196F3;
-}
-
-input:focus+.slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-input:checked+.slider:before {
-  -webkit-transform: translateX($size-slider);
-  -ms-transform: translateX($size-slider);
-  transform: translateX($size-slider);
-}
-
-ul.options {
-  margin: 0 0 $padding-options * 2;
-  padding: 0 $padding-options;
+ul.toggle-list {
+  margin: 0 0 $padding-card * 2;
+  padding: 0 $padding-card;
   list-style: none;
 }
 
-ul.options li {
-  margin-bottom: $padding-options;
-  justify-content: space-between;
-  align-items: center;
-  display: flex;
+ul.toggle-list li {
+  margin-bottom: $padding-card;
 }

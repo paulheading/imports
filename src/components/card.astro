@@ -21,24 +21,25 @@ const profileProps = {
   <img {...profileProps} />
   <InfoButton />
   <h2>{title}</h2>
-  <div class="wrap_slot">
-    <slot />
+  <slot />
+  <div class="wrap-button">
+    <SelectButton />
   </div>
-  <SelectButton />
 </div>
 
 <style lang="scss">
   @import "~styles/mixins.scss";
 
   .card {
-    margin: $margin-card $padding-card $padding-card;
+    margin: $margin-card $padding-card 0;
     border-radius: $padding-card;
+    max-width: $max-width-card;
     border: 1px solid black;
     vertical-align: middle;
     padding: $padding-card;
     display: inline-block;
     position: relative;
-    width: $width-card;
+    width: 100%;
   }
 
   .custom.card {
@@ -46,9 +47,18 @@ const profileProps = {
     opacity: 0;
   }
 
-  .wrap_slot {
-    width: $width-card-text;
-    margin-right: auto;
-    margin-left: auto;
+  img.profile {
+    background-color: gainsboro;
+    margin-top: $margin-profile;
+    border: 1px solid black;
+    height: $size-profile;
+    display: inline-block;
+    width: $size-profile;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  .wrap-button {
+    padding: 3px;
   }
 </style>

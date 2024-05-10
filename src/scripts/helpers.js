@@ -1,6 +1,8 @@
 const store = {};
 
 async function getData(endpoint) {
+  if (!store.access_token) window.location.replace("/");
+
   let response = await fetch("https://api.spotify.com/v1/" + endpoint, {
     method: "get",
     headers: {

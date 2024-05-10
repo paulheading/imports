@@ -1,12 +1,28 @@
+/// Color variables
+
+$color-green: hsl(155, 65%, 65%);
+
+$color-blue: hsl(195, 65%, 65%);
+
+$color-purple: hsl(260, 65%, 65%);
+
+$color-red: hsl(10, 75%, 50%);
+
+$color-pink: hsl(5, 100%, 75%);
+
+$color-pink: hsl(45, 100%, 50%);
+
 /// Margin variables
+
+$margin-p: 24px;
 
 /// Width variables
 
 $width-layout: 768px;
 
-$width-card: 260px;
+$max-width-card: 270px;
 
-$width-card-text: 80%;
+$max-width-card-text: 80%;
 
 $width-switch: 56px;
 
@@ -26,24 +42,22 @@ $offset-slider: 4px;
 
 /// Padding variables
 
-$padding-options: 10px;
-
-$padding-card: 10px;
-
 /// Size variables
 
 /// Transition variables
 
-$transition-slider: .4s;
+$transition-slider: 200ms;
 
 /// Dependent variables
+
+$margin-card: $height-header;
+
+$padding-card: $margin-p * 0.5;
+
+$padding-wrap-cards: $height-header * 0.5;
 
 $size-profile: $height-header;
 
 $size-slider: $height-switch - ($offset-slider * 2);
 
-$margin-card: $size-profile * 0.5;
-
-$margin-profile: - ($size-profile * 0.5 + $padding-card);
-
-$padding-wrap-cards: $height-header * 0.5;
+$margin-profile: - ($height-header * 0.5 + $padding-card);
