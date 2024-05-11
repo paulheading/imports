@@ -1,4 +1,8 @@
-const store = {};
+const store = {
+  loaded: {
+    callback: false,
+  },
+};
 
 async function getData(endpoint) {
   if (!store.access_token) window.location.replace("/");
