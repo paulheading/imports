@@ -2,7 +2,7 @@
 import InfoButton from "~components/buttons/info.astro";
 import SelectButton from "~components/buttons/select.astro";
 
-const { title } = Astro.props;
+const { title, image_path, config } = Astro.props;
 
 const customClass = title.toLowerCase();
 
@@ -11,24 +11,35 @@ const containerProps = {
 };
 
 const profileProps = {
-  "class:list": ["profile"],
-  src: "/" + title.toLowerCase() + ".jpg",
   alt: title + "'s profile pic",
+  "class:list": ["profile"],
+  src: image_path,
 };
 ---
 
 <div {...containerProps}>
   <img {...profileProps} />
-  <InfoButton />
+  {config && <InfoButton />}
   <h2>{title}</h2>
-  <slot />
+  <div class="card-content">
+    <slot name="default" />
+  </div>
+  {
+    config && (
+      <ul class="card-config">
+        {config.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    )
+  }
   <div class="wrap-button">
     <SelectButton />
   </div>
 </div>
 
 <style lang="scss">
-  @import "~styles/mixins.scss";
+  @import "~styles/mixins";
 
   .card {
     margin: $margin-card $padding-card 0;
@@ -56,6 +67,12 @@ const profileProps = {
     width: $size-profile;
     border-radius: 50%;
     overflow: hidden;
+  }
+
+  .card-config {
+    margin-bottom: $margin-p;
+    margin-top: $margin-p;
+    display: none;
   }
 
   .wrap-button {

@@ -2,6 +2,22 @@ const store = {
   loaded: {
     callback: false,
   },
+  cards: {
+    cindy: {
+      title: "Cindy",
+      image_path: "/cindy.jpg",
+      config: ["Discovered this year", "Recommends included"],
+    },
+    badjo: {
+      title: "BadJo",
+      image_path: "/badjo.jpg",
+      config: ["Released this year", "No recommends"],
+    },
+    custom: {
+      title: "Custom",
+      image_path: "/custom.jpg",
+    },
+  },
 };
 
 async function getData(endpoint) {

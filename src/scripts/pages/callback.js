@@ -1,5 +1,7 @@
 import { setAccessToken, setUser } from "~scripts/services";
+import listenForInfoButtons from "~scripts/components/buttons/info";
 import { store } from "~scripts/helpers";
+
 // import NProgress from "nprogress";
 
 // NProgress.configure({ showSpinner: false });
@@ -28,4 +30,8 @@ function createFirstName() {
   console.log("user: ", store);
 }
 
-setAccessToken().then(setUser).then(LoadDOM).then(createFirstName);
+setAccessToken()
+  .then(setUser)
+  .then(LoadDOM)
+  .then(createFirstName)
+  .then(listenForInfoButtons);

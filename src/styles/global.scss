@@ -1,7 +1,8 @@
 /// @author Paul Heading
 /// This is the global scss file
 
-@import "~styles/mixins.scss";
+@import "~styles/mixins";
+@import "~styles/buttons";
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -59,6 +60,16 @@ h1 {
 .card-intro {
   width: $max-width-card-text;
   margin: 0 auto $margin-p;
+}
+
+.card-content>p {
+  width: $max-width-card-text;
+  margin: 0 auto $margin-p;
+}
+
+.card-config {
+  list-style: none;
+  padding: 0;
 }
 
 ul.toggle-list {

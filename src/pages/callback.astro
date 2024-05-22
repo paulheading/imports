@@ -5,6 +5,7 @@ import CustomButton from "~components/buttons/custom.astro";
 import OptionToggle from "~components/toggles/option.astro";
 import NotLoaded from "~components/not-loaded.astro";
 import Loaded from "~components/loaded.astro";
+import { store } from "~scripts/helpers";
 ---
 
 <Layout>
@@ -23,18 +24,16 @@ import Loaded from "~components/loaded.astro";
         <p>Pick a playlist style to get started</p>
       </div>
       <div class="wrap-cards">
-        <Card title="Cindy">
-          <p class="card-intro">
-            We're all friends here. Let's find your recent favs and share the
+        <Card {...store.cards.cindy}>
+          <p>
+            We’re all friends here. Let’s find your recent favs and share the
             love.
           </p>
         </Card>
-        <Card title="BadJo">
-          <p class="card-intro">
-            Don’t waste my time. Fresh discoveries only. Get out.
-          </p>
+        <Card {...store.cards.badjo}>
+          <p>Don’t waste my time. Fresh discoveries only. Get out.</p>
         </Card>
-        <Card title="Custom">
+        <Card {...store.cards.custom}>
           <ul class="toggle-list">
             <li><OptionToggle title="Released this year" color="green" /></li>
             <li>
