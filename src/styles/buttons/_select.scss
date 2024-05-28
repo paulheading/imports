@@ -11,3 +11,11 @@ button.select {
     @include double-box;
   }
 }
+
+button.select[data-active="true"] {
+  background-color: blue;
+
+  @include focus {
+    @include double-box(white, blue);
+  }
+}

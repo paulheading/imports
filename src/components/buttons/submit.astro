@@ -1,0 +1,13 @@
+---
+let { title } = Astro.props;
+
+let props = {
+  "class:list": ["select"],
+  "data-active": "false",
+  "data-title": title,
+};
+---
+
+<button {...props}>
+  <slot />
+</button>

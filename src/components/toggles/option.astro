@@ -1,10 +1,14 @@
 ---
-const { title, color = "blue" } = Astro.props;
+const { title, color = "blue", display = "flex" } = Astro.props;
 
-const containerClass = title.toLowerCase().split(" ").join("-");
+const containerClass = title
+  .toLowerCase()
+  .replace("?", "")
+  .split(" ")
+  .join("-");
 
 const containerProps = {
-  "class:list": ["toggle-option", containerClass],
+  "class:list": ["toggle-option", containerClass, display],
 };
 
 const sliderProps = {
@@ -13,7 +17,7 @@ const sliderProps = {
 ---
 
 <div {...containerProps}>
-  <span>{title}</span>
+  <div>{title}</div>
   <label class="switch">
     <input type="checkbox" />
     <span {...sliderProps}></span>
@@ -23,7 +27,11 @@ const sliderProps = {
 <style lang="scss">
   @import "~styles/mixins";
 
-  .toggle-option {
+  .toggle-option.block > div {
+    margin-bottom: 20px;
+  }
+
+  .toggle-option.flex {
     justify-content: space-between;
     align-items: center;
     display: flex;

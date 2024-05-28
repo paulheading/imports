@@ -1,5 +1,6 @@
 import { setAccessToken, setUser } from "~scripts/services";
 import listenForInfoButtons from "~scripts/components/buttons/info";
+import listenForSelectButtons from "~scripts/components/buttons/select";
 import { store } from "~scripts/helpers";
 
 // import NProgress from "nprogress";
@@ -34,4 +35,7 @@ setAccessToken()
   .then(setUser)
   .then(LoadDOM)
   .then(createFirstName)
-  .then(listenForInfoButtons);
+  .then(function () {
+    listenForInfoButtons();
+    listenForSelectButtons();
+  });

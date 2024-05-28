@@ -2,15 +2,20 @@
 import Layout from "~layouts/main.astro";
 import Card from "~components/card.astro";
 import CustomButton from "~components/buttons/custom.astro";
+import SummertimeToggle from "~components/toggles/summertime.astro";
 import OptionToggle from "~components/toggles/option.astro";
 import NotLoaded from "~components/not-loaded.astro";
 import Loaded from "~components/loaded.astro";
+import Loading from "~components/loading.astro";
 import { store } from "~scripts/helpers";
+import BuildButton from "~components/buttons/build.astro";
 ---
 
 <Layout>
   <div class="wrap-layout">
-    <NotLoaded>not loaded 2!</NotLoaded>
+    <NotLoaded>
+      <Loading />
+    </NotLoaded>
     <Loaded>
       <div class="hero">
         <h1>Hi <strong id="firstname"></strong></h1>
@@ -44,6 +49,8 @@ import { store } from "~scripts/helpers";
         </Card>
       </div>
       <CustomButton />
+      <SummertimeToggle />
+      <BuildButton />
     </Loaded>
   </div>
 </Layout>

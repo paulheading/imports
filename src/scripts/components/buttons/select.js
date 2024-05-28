@@ -1,5 +1,15 @@
 function listenForButtonClicks({ currentTarget }) {
   if (!currentTarget) return;
+
+  let active = "data-active";
+
+  let isActive = currentTarget.getAttribute(active) == "true";
+
+  let card = currentTarget.closest(".card");
+
+  currentTarget.setAttribute(active, isActive ? "false" : "true");
+
+  card.setAttribute(active, isActive ? "false" : "true");
 }
 
 export default function () {

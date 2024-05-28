@@ -1,6 +1,6 @@
 ---
 import InfoButton from "~components/buttons/info.astro";
-import SelectButton from "~components/buttons/select.astro";
+import SubmitButton from "~components/buttons/submit.astro";
 
 const { title, image_path, config } = Astro.props;
 
@@ -14,6 +14,10 @@ const profileProps = {
   alt: title + "'s profile pic",
   "class:list": ["profile"],
   src: image_path,
+};
+
+const selectProps = {
+  title,
 };
 ---
 
@@ -34,7 +38,7 @@ const profileProps = {
     )
   }
   <div class="wrap-button">
-    <SelectButton />
+    <SubmitButton {...selectProps}>Select</SubmitButton>
   </div>
 </div>
 
@@ -51,6 +55,10 @@ const profileProps = {
     display: inline-block;
     position: relative;
     width: 100%;
+  }
+
+  .card[data-active="true"] {
+    border-color: blue;
   }
 
   .custom.card {
