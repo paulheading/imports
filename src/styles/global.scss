@@ -83,8 +83,6 @@ ul.toggle-list li {
 }
 
 .toggle-option.would-you-like-a-summertime-playlist {
-  margin-right: auto;
-  margin-left: auto;
+  @include wrap-narrow;
   margin-top: 50px;
-  max-width: 225px;
 }

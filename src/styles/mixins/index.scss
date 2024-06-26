@@ -43,3 +43,9 @@
   @include setup-box;
   box-shadow: 0 0 0 $bg_size $bg, 0 0 0 ($bg_size + $col_size) $col;
 }
+
+@mixin wrap-narrow {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 225px;
+}

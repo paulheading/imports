@@ -1,5 +1,6 @@
 ---
 import Layout from "~layouts/main.astro";
+import SubmitButton from "~components/buttons/submit.astro";
 ---
 
 <Layout>
@@ -9,9 +10,17 @@ import Layout from "~layouts/main.astro";
       <h4>Songs you discovered this year</h4>
     </div>
     <div class="controls">
-      <button id="log-in">Log in</button>
+      <SubmitButton title="login">Log in</SubmitButton>
     </div>
   </div>
 </Layout>
 
 <script src="~scripts/pages/homepage"></script>
+
+<style lang="scss">
+  @import "~styles/mixins";
+
+  .controls {
+    @include wrap-narrow;
+  }
+</style>

@@ -1,4 +1,7 @@
 const store = {
+  selected: {
+    config: [],
+  },
   loaded: {
     callback: false,
   },
@@ -16,6 +19,7 @@ const store = {
     custom: {
       title: "Custom",
       image_path: "/custom.jpg",
+      config: [],
     },
   },
 };

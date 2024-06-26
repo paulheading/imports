@@ -7,10 +7,10 @@ import SubmitButton from "~components/buttons/submit.astro";
 </div>
 
 <style lang="scss">
+  @import "~styles/mixins";
+
   .container_build {
-    margin-right: auto;
-    margin-left: auto;
+    @include wrap-narrow;
     margin-top: 50px;
-    max-width: 225px;
   }
 </style>

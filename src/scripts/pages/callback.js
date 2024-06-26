@@ -1,6 +1,8 @@
 import { setAccessToken, setUser } from "~scripts/services";
 import listenForInfoButtons from "~scripts/components/buttons/info";
 import listenForSelectButtons from "~scripts/components/buttons/select";
+import listenForCustomSelectButton from "~scripts/components/buttons/select_custom";
+import { listenForBuildButton } from "~scripts/components/buttons/build";
 import { store } from "~scripts/helpers";
 
 // import NProgress from "nprogress";
@@ -27,8 +29,6 @@ function createFirstName() {
   let $first_name = document.querySelector("#firstname");
 
   $first_name.innerHTML = store.user.first_name;
-
-  console.log("user: ", store);
 }
 
 setAccessToken()
@@ -38,4 +38,6 @@ setAccessToken()
   .then(function () {
     listenForInfoButtons();
     listenForSelectButtons();
+    listenForCustomSelectButton();
+    listenForBuildButton();
   });
