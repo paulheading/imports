@@ -5,7 +5,7 @@ export default function () {
   let auth_query_parameters = new URLSearchParams({
     response_type: "code",
     client_id,
-    scope: "user-library-read",
+    scope: "user-library-read, playlist-modify-public, playlist-modify-private",
     redirect_uri,
   });
 

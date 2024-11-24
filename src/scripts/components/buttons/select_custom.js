@@ -18,8 +18,6 @@ function listenForButtonClicks({ currentTarget }) {
 
     if ($input.checked) store.selected.config.push($title.innerText);
   });
-
-  console.log("selected config: ", store.selected.config);
 }
 
 export default function () {

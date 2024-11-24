@@ -1,6 +1,8 @@
 const store = {
   selected: {
     config: [],
+    tracks: [],
+    playlist: {},
   },
   loaded: {
     callback: false,
@@ -39,4 +41,20 @@ async function getData(endpoint) {
   return data;
 }
 
-export { store, getData };
+async function postData(endpoint, body) {
+  if (!store.access_token) window.location.replace("/");
+
+  let response = await fetch("https://api.spotify.com/v1/" + endpoint, {
+    method: "post",
+    headers: {
+      Authorization: "Bearer " + store.access_token,
+    },
+    body: JSON.stringify({ ...body }),
+  });
+
+  let data = await response.json();
+
+  return data;
+}
+
+export { store, getData, postData };
