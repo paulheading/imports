@@ -1,26 +1,19 @@
 ---
-import Layout from "~layouts/main.astro";
-import SubmitButton from "~components/buttons/submit.astro";
+import Layout from "~Layouts/Main";
+import { SolidButton, Wrap } from "paully";
+
+import { seo } from "paully/data";
+
+const layoutProps = {
+  keywords: seo.keywords("portfolio"),
+  description: "I'm a " + seo.job.title + ". " + seo.job.description,
+};
 ---
 
-<Layout>
-  <div class="wrap-layout">
-    <div class="hero">
-      <h1>Yearly</h1>
-      <h4>Songs you discovered this year</h4>
-    </div>
-    <div class="controls">
-      <SubmitButton title="login">Log in</SubmitButton>
-    </div>
-  </div>
+<Layout {...layoutProps}>
+  <Wrap style={{ textAlign: "center" }}>
+    <h1>Yearly</h1>
+    <h4>Songs you discovered this year</h4>
+    <SolidButton>Log in</SolidButton>
+  </Wrap>
 </Layout>
-
-<script src="~scripts/pages/homepage"></script>
-
-<style lang="scss">
-  @import "~styles/mixins";
-
-  .controls {
-    @include wrap-narrow;
-  }
-</style>

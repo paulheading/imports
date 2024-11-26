@@ -1,8 +1,14 @@
 {
-  "name": "yearly4",
+  "name": "fresh",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "compile:data": "cd src/compile/data && node index.js",
+    "compile:images": "cd src/compile/images && node index.js",
+    "compile:pdf": "cd src/compile/pdf && node index.js",
+    "compile:md": "cd src/compile/md && gulp",
+    "watch:md": "cd src/compile/md && gulp watch",
+    "compile": "npm run compile:md && npm run compile:data && npm run compile:images && npm run compile:pdf",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
@@ -10,12 +16,20 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^4.11.2",
-    "buffer": "^6.0.3",
+    "@astrojs/mdx": "^3.1.9",
+    "@astrojs/sitemap": "^3.2.1",
+    "astro": "^4.16.13",
     "focus-visible": "^5.2.0",
-    "gsap": "^3.12.5",
-    "luxon": "^3.4.4",
-    "nprogress": "^0.2.0",
-    "sass": "^1.77.0"
+    "gsap": "npm:@gsap/shockingly@^3.11.4",
+    "highlight.js": "^11.9.0",
+    "js-search": "^2.0.1",
+    "luxon": "^3.3.0",
+    "node-html-parser": "^6.1.13",
+    "paully": "^2.0.4",
+    "remove-markdown": "^0.5.5",
+    "showdown": "^2.1.0"
+  },
+  "devDependencies": {
+    "sass-embedded": "^1.81.0"
   }
 }

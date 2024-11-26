@@ -1,20 +1,26 @@
 ---
 import "~styles/global.scss";
-import Head from "~components/head.astro";
+import Head from "~Components/Head";
 ---
 
 <script>
   import "focus-visible/dist/focus-visible.min.js";
-  import "nprogress/nprogress.js";
 </script>
+
+<script src="~scripts/layouts/main.js"></script>
 
 <html lang="en">
   <Head {...Astro.props} />
-  <body>
+  <body data-state="visible">
     <header></header>
-    <main>
-      <slot />
-    </main>
+    <slot />
     <footer></footer>
   </body>
 </html>
+
+<style>
+  header,
+  footer {
+    height: 100px;
+  }
+</style>

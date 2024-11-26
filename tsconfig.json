@@ -2,8 +2,26 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "~*": ["src/*"]
+      "~*": ["src/*"],
+      "~vars": ["src/styles/_vars.scss"],
+      "~vars/*": ["src/styles/vars/*.scss"],
+      "~functions": ["src/styles/_functions.scss"],
+      "~functions/*": ["src/styles/functions/*.scss"],
+      "~mixins": ["src/styles/_mixins.scss"],
+      "~mixins/*": ["src/styles/mixins/*.scss"],
+      "~Components/*": ["src/components/*.astro"],
+      "~Layouts/*": ["src/layouts/*.astro"],
+      "~Trello/*": ["src/components/Desktop/Window/Trello/*.astro"],
+      "~Window/*": ["src/components/Desktop/Window/*.astro"],
+      "~Folder/*": ["src/components/Desktop/Folder/*.astro"],
+      "~Canvas/*": ["src/components/Desktop/Canvas/*.astro"],
+      "~Topbar/*": ["src/components/Desktop/Topbar/*.astro"],
+      "~Gallery/*": ["src/components/Page/Gallery/*.astro"],
+      "~Desktop/*": ["src/components/Desktop/*.astro"],
+      "~Form/*": ["src/components/Form/*.astro"],
+      "~Menu/*": ["src/components/Menu/*.astro"],
+      "~Page/*": ["src/components/Page/*.astro"]
     }
   },
-  "extends": "astro/tsconfigs/base"
+  "extends": "astro/tsconfigs/strict"
 }

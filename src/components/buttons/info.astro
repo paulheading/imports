@@ -1,7 +1,20 @@
 ---
-import InfoSvg from "~svg/info.astro";
+import { InvisibleButton } from "paully";
 ---
 
-<button class="info">
-  <InfoSvg />
-</button>
+<InvisibleButton className="info-button">
+  <slot />
+</InvisibleButton>
+
+<style lang="scss">
+  @use "~mixins" as *;
+
+  .info-button {
+    border-radius: 50%;
+
+    @include focus {
+      background-color: black;
+      fill: white;
+    }
+  }
+</style>

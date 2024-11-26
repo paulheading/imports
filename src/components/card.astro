@@ -1,89 +1,76 @@
 ---
-import InfoButton from "~components/buttons/info.astro";
-import SubmitButton from "~components/buttons/submit.astro";
+import { SolidButton, InvisibleButton } from "paully";
+import { Info as InfoSvg } from "paully/svgs";
+import InfoButton from "~Components/buttons/Info";
 
-const { title, image_path, config } = Astro.props;
-
-const customClass = title.toLowerCase();
-
-const containerProps = {
-  "class:list": ["card", customClass],
-};
-
-const profileProps = {
-  alt: title + "'s profile pic",
-  "class:list": ["profile"],
-  src: image_path,
-};
-
-const selectProps = {
-  title,
-};
+let { title, intro, img_path, config } = Astro.props;
 ---
 
-<div {...containerProps}>
-  <img {...profileProps} />
-  {config && <InfoButton />}
-  <h2>{title}</h2>
-  <div class="card-content">
-    <slot name="default" />
+<div class="card-container">
+  <div class="card-header">
+    <img src={img_path} alt="" class="profile" />
+    <InfoButton><InfoSvg className="info-svg" /></InfoButton>
   </div>
-  {
-    config && (
-      <ul class="card-config">
-        {config.map((item) => (
-          <li>{item}</li>
-        ))}
-      </ul>
-    )
-  }
-  <div class="wrap-button">
-    <SubmitButton {...selectProps}>Select</SubmitButton>
+  <h2 class="title">{title}</h2>
+  <div class="intro">
+    {intro.map((sentence) => <p>{sentence}</p>)}
   </div>
+  <SolidButton className="select">Select</SolidButton>
 </div>
 
 <style lang="scss">
-  @import "~styles/mixins";
+  @use "~mixins" as *;
 
-  .card {
-    margin: $margin-card $padding-card 0;
-    border-radius: $padding-card;
-    max-width: $max-width-card;
+  .info-svg {
+    display: block;
+  }
+
+  .card-container {
+    margin: $margin-top-card $margin-card $margin-card;
+    border-radius: $border-radius-card;
+    background-color: white;
     border: 1px solid black;
-    vertical-align: middle;
     padding: $padding-card;
     display: inline-block;
-    position: relative;
+    width: $width-card;
+  }
+
+  .card-header {
+    grid-template-columns: $size-card-info $size-card-profile $size-card-info;
+    margin-bottom: $margin-bottom-card-header;
+    justify-content: space-between;
+    margin-top: -$margin-top-card;
+    align-items: flex-end;
+    gap: $margin-card;
+    display: grid;
+  }
+
+  .profile {
+    @include size($size-card-profile);
+    grid-column: 2;
+
+    & {
+      border: 1px solid black;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+  }
+
+  .title {
+    font-size: $h3-font-size;
+    margin-bottom: 0.5rem;
+  }
+
+  .intro {
+    @include center-block;
+
+    & {
+      margin-bottom: $margin-bottom-card-header;
+      max-width: $max-width-card-intro;
+    }
+  }
+
+  .select {
     width: 100%;
-  }
-
-  .card[data-active="true"] {
-    border-color: blue;
-  }
-
-  .custom.card {
-    display: none;
-    opacity: 0;
-  }
-
-  img.profile {
-    background-color: gainsboro;
-    margin-top: $margin-profile;
-    border: 1px solid black;
-    height: $size-profile;
-    display: inline-block;
-    width: $size-profile;
-    border-radius: 50%;
-    overflow: hidden;
-  }
-
-  .card-config {
-    margin-bottom: $margin-p;
-    margin-top: $margin-p;
-    display: none;
-  }
-
-  .wrap-button {
-    padding: 3px;
   }
 </style>

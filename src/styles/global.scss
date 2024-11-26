@@ -1,88 +1,76 @@
-/// @author Paul Heading
-/// This is the global scss file
+@use "paully/styles";
 
-@import "~styles/mixins";
-@import "~styles/buttons";
+@use "global/page-content";
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.35;
-  font-size: 18px;
-  margin: 0;
+@use "mixins" as *;
+
+.small-up {
+  @include small-down {
+    display: none;
+  }
 }
 
-header {
-  height: $height-header;
+.small-down {
+  @include small-up {
+    display: none;
+  }
 }
 
-footer {
-  height: $height-header;
+code {
+  @include code-styles;
 }
 
-main {
-  padding-right: $margin-p;
-  padding-left: $margin-p;
+pre {
+  @include code-styles;
+
+  & {
+    overflow: scroll;
+  }
 }
 
-button {
-  font-size: inherit;
+p:has(img:only-child)+p:has(em:only-child) {
+  margin-top: -$margin-paragraph;
+  font-size: $font-size-caption;
+  background-color: $c-body-bg;
+  padding: $padding-blockquote;
 }
 
-p {
-  margin: 0;
+img {
+  max-width: 100%;
+  display: block;
 }
 
-p+p {
-  margin-top: $margin-p;
+.artwork svg {
+  display: none;
 }
 
-.wrap-layout {
-  max-width: $width-layout;
-  margin-right: auto;
-  text-align: center;
-  margin-left: auto;
+button:not(:disabled) {
+  cursor: pointer;
 }
 
-h1 {
-  font-weight: normal;
+.page-row {
+  @include simple-links {
+    @include focus {
+      @include gold-box;
+    }
+  }
+
+  blockquote {
+    @include blockquote;
+  }
+
+  p+blockquote,
+  blockquote+p,
+  ul+blockquote,
+  blockquote+ul,
+  ol+blockquote,
+  blockquote+ol {
+    margin-top: $margin-blockquote;
+  }
 }
 
-.intro {
-  max-width: $max-width-intro;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.wrap-cards {
-  min-height: 336px;
-}
-
-.card-intro {
-  width: $max-width-card-text;
-  margin: 0 auto $margin-p;
-}
-
-.card-content>p {
-  width: $max-width-card-text;
-  margin: 0 auto $margin-p;
-}
-
-.card-config {
-  list-style: none;
-  padding: 0;
-}
-
-ul.toggle-list {
-  margin: 0 0 $padding-card * 2;
-  padding: 0 $padding-card;
-  list-style: none;
-}
-
-ul.toggle-list li {
-  margin-bottom: $padding-card;
-}
-
-.toggle-option.would-you-like-a-summertime-playlist {
-  @include wrap-narrow;
-  margin-top: 50px;
+.overlay a {
+  @include focus {
+    @include white-box;
+  }
 }
