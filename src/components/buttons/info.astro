@@ -1,16 +1,21 @@
 ---
 import { InvisibleButton } from "paully";
+
+let { className } = Astro.props;
 ---
 
-<InvisibleButton className="info-button">
-  <slot />
-</InvisibleButton>
+<div class={className}>
+  <InvisibleButton className="info-button">
+    <slot />
+  </InvisibleButton>
+</div>
 
 <style lang="scss">
   @use "~mixins" as *;
 
   .info-button {
     border-radius: 50%;
+    display: block;
 
     @include focus {
       background-color: black;

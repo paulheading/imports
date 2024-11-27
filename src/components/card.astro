@@ -9,7 +9,9 @@ let { title, intro, img_path, config } = Astro.props;
 <div class="card-container">
   <div class="card-header">
     <img src={img_path} alt="" class="profile" />
-    <InfoButton><InfoSvg className="info-svg" /></InfoButton>
+    <InfoButton className="info-position">
+      <InfoSvg className="info-svg" />
+    </InfoButton>
   </div>
   <h2 class="title">{title}</h2>
   <div class="intro">
@@ -21,6 +23,11 @@ let { title, intro, img_path, config } = Astro.props;
 <style lang="scss">
   @use "~mixins" as *;
 
+  .info-position {
+    position: relative;
+    top: -0.625rem;
+  }
+
   .info-svg {
     display: block;
   }
@@ -30,9 +37,9 @@ let { title, intro, img_path, config } = Astro.props;
     border-radius: $border-radius-card;
     background-color: white;
     border: 1px solid black;
+    max-width: $width-card;
     padding: $padding-card;
     display: inline-block;
-    width: $width-card;
   }
 
   .card-header {
