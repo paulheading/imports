@@ -1,6 +1,6 @@
 ---
 import "~styles/global.scss";
-import Head from "~Components/Head";
+import { Head, Container } from "paully";
 ---
 
 <script>
@@ -12,9 +12,11 @@ import Head from "~Components/Head";
 <html lang="en">
   <Head {...Astro.props} />
   <body data-state="visible">
-    <header></header>
-    <slot />
-    <footer></footer>
+    <Container top="0rem" bottom="0rem">
+      <header></header>
+      <slot />
+      <footer></footer>
+    </Container>
   </body>
 </html>
 

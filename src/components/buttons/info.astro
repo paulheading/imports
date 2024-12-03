@@ -14,12 +14,16 @@ let { className } = Astro.props;
   @use "~mixins" as *;
 
   .info-button {
-    border-radius: 50%;
-    display: block;
+    @include focus-color-switch(white, black);
 
-    @include focus {
-      background-color: black;
-      fill: white;
+    & {
+      border-radius: 50%;
+      fill: currentColor;
+      display: block;
     }
+  }
+
+  .info-button.selected-state {
+    @include focus-color-switch($c-green, white);
   }
 </style>

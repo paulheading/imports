@@ -1,83 +1,37 @@
 ---
-import { SolidButton, InvisibleButton } from "paully";
-import { Info as InfoSvg } from "paully/svgs";
-import InfoButton from "~Components/buttons/Info";
+import CardContent from "~Components/Card/Content";
+import SelectButton from "~Components/Buttons/Select";
 
-let { title, intro, img_path, config } = Astro.props;
+let { content, id } = Astro.props;
+
+let multiple = content.length > 1;
+
+let props = {
+  class: "card-container",
+  "data-id": id,
+};
 ---
 
-<div class="card-container">
-  <div class="card-header">
-    <img src={img_path} alt="" class="profile" />
-    <InfoButton className="info-position">
-      <InfoSvg className="info-svg" />
-    </InfoButton>
-  </div>
-  <h2 class="title">{title}</h2>
-  <div class="intro">
-    {intro.map((sentence) => <p>{sentence}</p>)}
-  </div>
-  <SolidButton className="select">Select</SolidButton>
+<div {...props}>
+  {content.map((content) => <CardContent {...content} multiple={multiple} />)}
+  <SelectButton />
 </div>
 
 <style lang="scss">
   @use "~mixins" as *;
-
-  .info-position {
-    position: relative;
-    top: -0.625rem;
-  }
-
-  .info-svg {
-    display: block;
-  }
 
   .card-container {
     margin: $margin-top-card $margin-card $margin-card;
     border-radius: $border-radius-card;
     background-color: white;
     border: 1px solid black;
-    max-width: $width-card;
     padding: $padding-card;
     display: inline-block;
   }
 
-  .card-header {
-    grid-template-columns: $size-card-info $size-card-profile $size-card-info;
-    margin-bottom: $margin-bottom-card-header;
-    justify-content: space-between;
-    margin-top: -$margin-top-card;
-    align-items: flex-end;
-    gap: $margin-card;
-    display: grid;
-  }
-
-  .profile {
-    @include size($size-card-profile);
-    grid-column: 2;
-
-    & {
-      border: 1px solid black;
-      border-radius: 50%;
-      overflow: hidden;
-    }
-  }
-
-  .title {
-    font-size: $h3-font-size;
-    margin-bottom: 0.5rem;
-  }
-
-  .intro {
-    @include center-block;
-
-    & {
-      margin-bottom: $margin-bottom-card-header;
-      max-width: $max-width-card-intro;
-    }
-  }
-
-  .select {
-    width: 100%;
+  .card-container.selected-state {
+    border-color: currentColor;
+    background-color: $c-green;
+    color: white;
   }
 </style>
