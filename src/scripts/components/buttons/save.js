@@ -34,7 +34,6 @@ function showElements() {
 
 function saveButtonClick() {
   loadingCurrently(hideElements);
-  console.log("saving...");
   postPlaylistData()
     .then(postTrackData)
     .then(function () {
@@ -54,8 +53,6 @@ function saveButtonClick() {
 
         $.print.share_link.innerText = playlist.external_urls.spotify;
         $.print.share_link.href = playlist.external_urls.spotify;
-
-        console.log("playlist: ", playlist);
       });
     })
     .then(function () {

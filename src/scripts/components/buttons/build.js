@@ -34,8 +34,6 @@ function buildButtonClick() {
 
   config = config[0].copy;
 
-  console.log("config: ", config);
-
   getTracks(displayResults);
 }
 

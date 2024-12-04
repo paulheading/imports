@@ -57,8 +57,6 @@ function selectButtonClick(event) {
   $cards.forEach(($card) => removeSelectedState($card));
 
   !isSelected ? addSelectedState($card) : removeSelectedState($card);
-
-  console.log("store: ", store);
 }
 
 export default function () {
