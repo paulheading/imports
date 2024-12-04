@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/Main.astro";
+// import Layout from "../layouts/Main.astro";
 import { SolidButton, Wrap } from "paully";
 
 import { seo } from "paully/data";
@@ -13,15 +13,14 @@ const layoutProps = {
 
 <script src="~scripts/pages/index.js"></script>
 
-<Layout {...layoutProps}>
-  <Wrap style={{ textAlign: "center" }}>
-    <div>
-      <h1>Yearly</h1>
-      <h4>Songs you discovered this year</h4>
-      <SolidButton className="login-button">Log in</SolidButton>
-    </div>
-  </Wrap>
-</Layout>
+<!-- <Layout {...layoutProps}></Layout> -->
+<Wrap style={{ textAlign: "center" }}>
+  <div>
+    <h1>Yearly</h1>
+    <h4>Songs you discovered this year</h4>
+    <SolidButton className="login-button">Log in</SolidButton>
+  </div>
+</Wrap>
 
 <style lang="scss">
   @use "~mixins" as *;
