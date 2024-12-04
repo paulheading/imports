@@ -2,7 +2,6 @@ import { getTracks } from "~scripts/services";
 
 import $ from "~scripts/selectors";
 import store from "~data/store";
-import backup from "~data/results";
 
 import {
   byContentType,
@@ -51,23 +50,8 @@ function printPlaylistTrack(item, index) {
   $artist_name.href = item.track.artists[0].external_urls.spotify;
 }
 
-function displayResults(results) {
-  // results = results.sort(byLowestPopularity);
-
-  // store.results = results;
-
-  // store.results.map(function ({ track }, index) {
-  //   if (index > 9) return;
-
-  //   let div = document.createElement("div");
-
-  //   div.append(track.name);
-
-  //   $.body.append(div);
-  // });
-
-  let tracks = backup.filter((_, index) => index < 10);
-
+function displayResults(tracks) {
+  tracks = tracks.filter((_, index) => index < 10);
   tracks = tracks.sort(byLowestPopularity);
 
   store.selected.playlist.name = createPlaylistName();

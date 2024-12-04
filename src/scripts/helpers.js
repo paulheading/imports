@@ -19,7 +19,7 @@ function loadingComplete(callback) {
   }, 1000);
 }
 
-let currentYear = "2024";
+let getYear = () => DateTime.now().toFormat("yyyy");
 
 let getYearFromString = (value) => value.slice(0, 4);
 
@@ -29,7 +29,7 @@ function byAlbumReleaseDate(item, callback) {
 
   callback(item);
 
-  return getYearFromString(album.release_date) == currentYear;
+  return getYearFromString(album.release_date) == getYear();
 }
 
 let byContentType = ({ type }) => type == "config";
@@ -48,7 +48,7 @@ export {
   switchElements,
   loadingCurrently,
   loadingComplete,
-  currentYear,
+  getYear,
   getYearFromString,
   byAlbumReleaseDate,
   byContentType,

@@ -5,8 +5,6 @@ export default {
       name: "",
       tracks: [],
     },
-    // config: [],
-    // tracks: [],
   },
   user: {
     id: null,
