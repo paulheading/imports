@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "./",
     "paths": {
       "~*": ["src/*"],
       "~vars": ["src/styles/_vars.scss"],
@@ -13,5 +14,5 @@
       "~Layouts/*": ["src/layouts/*.astro"]
     }
   },
-  "extends": "astro/tsconfigs/base"
+  "extends": "astro/tsconfigs/strict"
 }
