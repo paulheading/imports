@@ -8,7 +8,7 @@ import {
   Wrap,
   SpotifyWindow,
 } from "paully";
-import Layout from "~Layouts/Main";
+// import Layout from "~Layouts/Main";
 import Card from "~Components/Card";
 import CustomButton from "~Components/Buttons/Custom";
 import BackButton from "~Components/Buttons/Back";
@@ -33,66 +33,65 @@ let saveButtonProps = {
 
 <script src="~scripts/pages/callback.js"></script>
 
-<Layout {...layoutProps}>
-  <Wrap style={{ textAlign: "center" }}>
-    <NotLoaded>
-      <Loader style={{ margin: "auto" }} />
-    </NotLoaded>
-    <Loaded>
-      <div data-section="choose-card" style={{ display: "none" }}>
-        <Wrap style={{ maxWidth: "28.75rem" }}>
-          <h1 style={{ fontWeight: "normal" }}>
-            Hi <strong data-print="firstname">%%user%%</strong>
-          </h1>
-          <p>Let's make a playlist!</p>
-          <p>
-            <strong>Yearly</strong> finds your favourite songs from the last year
-            and shares them with your friends.
-          </p>
-          <p>Pick a playlist <em>style</em> to get started</p>
+<!-- <Layout {...layoutProps}></Layout> -->
+<Wrap style={{ textAlign: "center" }}>
+  <NotLoaded>
+    <Loader style={{ margin: "auto" }} />
+  </NotLoaded>
+  <Loaded>
+    <div data-section="choose-card" style={{ display: "none" }}>
+      <Wrap style={{ maxWidth: "28.75rem" }}>
+        <h1 style={{ fontWeight: "normal" }}>
+          Hi <strong data-print="firstname">%%user%%</strong>
+        </h1>
+        <p>Let's make a playlist!</p>
+        <p>
+          <strong>Yearly</strong> finds your favourite songs from the last year and
+          shares them with your friends.
+        </p>
+        <p>Pick a playlist <em>style</em> to get started</p>
+      </Wrap>
+      <Wrap style={{ marginTop: "2rem" }}>
+        <Wrap>
+          <div data-section="playlist">
+            {store.cards.playlists.map((card) => <Card {...card} />)}
+          </div>
+          <div data-section="custom" style={{ display: "none" }}>
+            <Card {...store.cards.custom} />
+          </div>
         </Wrap>
         <Wrap style={{ marginTop: "2rem" }}>
-          <Wrap>
-            <div data-section="playlist">
-              {store.cards.playlists.map((card) => <Card {...card} />)}
-            </div>
-            <div data-section="custom" style={{ display: "none" }}>
-              <Card {...store.cards.custom} />
-            </div>
-          </Wrap>
-          <Wrap style={{ marginTop: "2rem" }}>
-            <CustomButton>Custom job please</CustomButton>
-          </Wrap>
-          <!-- <Wrap style={{ marginTop: "2rem", maxWidth: "12.5rem" }}>
+          <CustomButton>Custom job please</CustomButton>
+        </Wrap>
+        <!-- <Wrap style={{ marginTop: "2rem", maxWidth: "12.5rem" }}>
           <p>Would you like a summertime playlist?</p>
           <Toggle />
         </Wrap> -->
-          <Wrap style={{ marginTop: "2rem" }}>
-            <SolidButton className="build-button">Let's Build!</SolidButton>
-          </Wrap>
-        </Wrap>
-      </div>
-      <div data-section="save-playlist" style={{ display: "none" }}>
-        <div class="wrap-playlist">
-          <SpotifyWindow {...dummy} />
-        </div>
-        <Wrap style={{ marginTop: "3rem" }}>
-          <SolidButton {...saveButtonProps}> Save Playlist </SolidButton>
-        </Wrap>
-        <Wrap style={{ marginTop: "1rem" }}>
-          <BackButton>Back to start</BackButton>
-        </Wrap>
-      </div>
-      <div data-section="share-playlist" style={{ display: "none" }}>
-        <p>go share the link ya filthy animal!</p>
-        <p><a href="" data-print="share-link"></a></p>
         <Wrap style={{ marginTop: "2rem" }}>
-          <BackButton>Back to start</BackButton>
+          <SolidButton className="build-button">Let's Build!</SolidButton>
         </Wrap>
+      </Wrap>
+    </div>
+    <div data-section="save-playlist" style={{ display: "none" }}>
+      <div class="wrap-playlist">
+        <SpotifyWindow {...dummy} />
       </div>
-    </Loaded>
-  </Wrap>
-</Layout>
+      <Wrap style={{ marginTop: "3rem" }}>
+        <SolidButton {...saveButtonProps}> Save Playlist </SolidButton>
+      </Wrap>
+      <Wrap style={{ marginTop: "1rem" }}>
+        <BackButton>Back to start</BackButton>
+      </Wrap>
+    </div>
+    <div data-section="share-playlist" style={{ display: "none" }}>
+      <p>go share the link ya filthy animal!</p>
+      <p><a href="" data-print="share-link"></a></p>
+      <Wrap style={{ marginTop: "2rem" }}>
+        <BackButton>Back to start</BackButton>
+      </Wrap>
+    </div>
+  </Loaded>
+</Wrap>
 
 <style lang="scss">
   @use "~mixins" as *;
